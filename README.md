@@ -1,2 +1,2 @@
-# work
-chef-go work.
+# coding
+chef-go coding
