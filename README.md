@@ -1,2 +1,2 @@
 # coding
-chef-go coding
+chefsgo coding

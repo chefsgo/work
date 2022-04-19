@@ -1,13 +1,13 @@
 package main
 
 import (
-	. "github.com/chef-go/base"
-	"github.com/chef-go/chef"
+	. "github.com/chefsgo/base"
+	"github.com/chefsgo/chef"
 
-	_ "github.com/chef-go/cluster-default"
-	_ "github.com/chef-go/cluster-gossip"
-	_ "github.com/chef-go/log-default"
-	_ "github.com/chef-go/log-file"
+	_ "github.com/chefsgo/cluster-default"
+	_ "github.com/chefsgo/cluster-gossip"
+	_ "github.com/chefsgo/log-default"
+	_ "github.com/chefsgo/log-file"
 )
 
 var (

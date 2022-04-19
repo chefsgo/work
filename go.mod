@@ -1,30 +1,30 @@
-module github.com/chef-go/work
+module github.com/chefsgo/work
 
 go 1.17
 
 replace (
-	github.com/chef-go/base => /Users/yatniel/chef-go/base
-	github.com/chef-go/chef => /Users/yatniel/chef-go/chef
-	github.com/chef-go/cluster-default => /Users/yatniel/chef-go/cluster-default
-	github.com/chef-go/cluster-gossip => /Users/yatniel/chef-go/cluster-gossip
-	github.com/chef-go/log-default => /Users/yatniel/chef-go/log-default
-	github.com/chef-go/log-file => /Users/yatniel/chef-go/log-file
-	github.com/chef-go/util => /Users/yatniel/chef-go/util
+	github.com/chefsgo/base => /Users/yatniel/chefsgo/base
+	github.com/chefsgo/chef => /Users/yatniel/chefsgo/chef
+	github.com/chefsgo/cluster-default => /Users/yatniel/chefsgo/cluster-default
+	github.com/chefsgo/cluster-gossip => /Users/yatniel/chefsgo/cluster-gossip
+	github.com/chefsgo/log-default => /Users/yatniel/chefsgo/log-default
+	github.com/chefsgo/log-file => /Users/yatniel/chefsgo/log-file
+	github.com/chefsgo/util => /Users/yatniel/chefsgo/util
 )
 
 require (
-	github.com/chef-go/base v0.0.0-00010101000000-000000000000
-	github.com/chef-go/chef v0.0.0-00010101000000-000000000000
-	github.com/chef-go/cluster-default v0.0.0-00010101000000-000000000000
-	github.com/chef-go/cluster-gossip v0.0.0-00010101000000-000000000000
-	github.com/chef-go/log-default v0.0.0-00010101000000-000000000000
-	github.com/chef-go/log-file v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/base v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/chef v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/cluster-default v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/cluster-gossip v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/log-default v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/log-file v0.0.0-00010101000000-000000000000
 )
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
-	github.com/chef-go/util v0.0.0-00010101000000-000000000000 // indirect
+	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
