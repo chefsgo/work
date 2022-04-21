@@ -8,6 +8,8 @@ import (
 	_ "github.com/chefsgo/cluster-gossip"
 	_ "github.com/chefsgo/log-default"
 	_ "github.com/chefsgo/log-file"
+	_ "github.com/chefsgo/mutex-default"
+	_ "github.com/chefsgo/mutex-redis"
 )
 
 var (
@@ -15,8 +17,9 @@ var (
 )
 
 func init() {
-	chef.Config(Map{
+	chef.Configure(Map{
 		"name":    "chef",
+		"role":    "user",
 		"version": "1.0.0",
 		"cluster": Map{
 			"driver": "gossip",
