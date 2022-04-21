@@ -2,6 +2,7 @@ package main
 
 import (
 	. "github.com/chefsgo/base"
+	_ "github.com/chefsgo/builtin"
 	"github.com/chefsgo/chef"
 
 	_ "github.com/chefsgo/cache-default"
@@ -18,6 +19,7 @@ import (
 	_ "github.com/chefsgo/session-file"
 	_ "github.com/chefsgo/session-memory"
 	_ "github.com/chefsgo/session-redis"
+	_ "github.com/chefsgo/token-jwt"
 )
 
 var (
@@ -25,14 +27,23 @@ var (
 )
 
 func init() {
+
 	chef.Configure(Map{
 		"name":    "chef",
 		"role":    "user",
 		"version": "1.0.0",
-		"cache": Map{
-			"driver": "buntdb",
+		"codec": Map{
+			"num_alphabet": Map{
+				"alphabet": "asdf",
+			},
+			"strAlphbet": Map{},
+			// "number": "asdfasdf",
+		},
+		"token": Map{
+			"driver": "jwt",
 		},
 	})
+
 }
 
 func main() {

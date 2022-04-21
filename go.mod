@@ -4,6 +4,7 @@ go 1.17
 
 replace (
 	github.com/chefsgo/base => /Users/yatniel/chefsgo/base
+	github.com/chefsgo/builtin => /Users/yatniel/chefsgo/builtin
 	github.com/chefsgo/cache-buntdb => /Users/yatniel/chefsgo/cache-buntdb
 	github.com/chefsgo/cache-default => /Users/yatniel/chefsgo/cache-default
 	github.com/chefsgo/cache-file => /Users/yatniel/chefsgo/cache-file
@@ -20,11 +21,13 @@ replace (
 	github.com/chefsgo/session-file => /Users/yatniel/chefsgo/session-file
 	github.com/chefsgo/session-memory => /Users/yatniel/chefsgo/session-memory
 	github.com/chefsgo/session-redis => /Users/yatniel/chefsgo/session-redis
+	github.com/chefsgo/token-jwt => /Users/yatniel/chefsgo/token-jwt
 	github.com/chefsgo/util => /Users/yatniel/chefsgo/util
 )
 
 require (
 	github.com/chefsgo/base v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/builtin v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-file v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-memory v0.0.0-00010101000000-000000000000
@@ -40,6 +43,7 @@ require (
 	github.com/chefsgo/session-file v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-memory v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-redis v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/token-jwt v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -47,6 +51,7 @@ require (
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
 	github.com/chefsgo/cache-buntdb v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
@@ -56,8 +61,12 @@ require (
 	github.com/hashicorp/go-sockaddr v1.0.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
 	github.com/hashicorp/memberlist v0.3.1 // indirect
+	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/miekg/dns v1.1.26 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529 // indirect
+	github.com/speps/go-hashids/v2 v2.0.1 // indirect
 	github.com/tidwall/btree v1.1.0 // indirect
 	github.com/tidwall/buntdb v1.2.9 // indirect
 	github.com/tidwall/gjson v1.12.1 // indirect
