@@ -21,6 +21,7 @@ replace (
 	github.com/chefsgo/session-file => /Users/yatniel/chefsgo/session-file
 	github.com/chefsgo/session-memory => /Users/yatniel/chefsgo/session-memory
 	github.com/chefsgo/session-redis => /Users/yatniel/chefsgo/session-redis
+	github.com/chefsgo/token-default => /Users/yatniel/chefsgo/token-default
 	github.com/chefsgo/token-jwt => /Users/yatniel/chefsgo/token-jwt
 	github.com/chefsgo/util => /Users/yatniel/chefsgo/util
 )
@@ -43,6 +44,7 @@ require (
 	github.com/chefsgo/session-file v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-memory v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-redis v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/token-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-jwt v0.0.0-00010101000000-000000000000
 )
 

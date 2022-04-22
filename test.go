@@ -19,6 +19,7 @@ import (
 	_ "github.com/chefsgo/session-file"
 	_ "github.com/chefsgo/session-memory"
 	_ "github.com/chefsgo/session-redis"
+	_ "github.com/chefsgo/token-default"
 	_ "github.com/chefsgo/token-jwt"
 )
 
@@ -32,15 +33,11 @@ func init() {
 		"name":    "chef",
 		"role":    "user",
 		"version": "1.0.0",
-		"codec": Map{
-			"num_alphabet": Map{
-				"alphabet": "asdf",
-			},
-			"strAlphbet": Map{},
-			// "number": "asdfasdf",
+		"cluster": Map{
+			"driver": "gossip",
 		},
 		"token": Map{
-			"driver": "jwt",
+			"driver": "default",
 		},
 	})
 
