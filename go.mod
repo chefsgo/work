@@ -12,6 +12,8 @@ replace (
 	github.com/chefsgo/chef => /Users/yatniel/chefsgo/chef
 	github.com/chefsgo/cluster-default => /Users/yatniel/chefsgo/cluster-default
 	github.com/chefsgo/cluster-gossip => /Users/yatniel/chefsgo/cluster-gossip
+	github.com/chefsgo/data-postgres => /Users/yatniel/chefsgo/data-postgres
+	github.com/chefsgo/http-default => /Users/yatniel/chefsgo/http-default
 	github.com/chefsgo/log-default => /Users/yatniel/chefsgo/log-default
 	github.com/chefsgo/log-file => /Users/yatniel/chefsgo/log-file
 	github.com/chefsgo/mutex-default => /Users/yatniel/chefsgo/mutex-default
@@ -24,6 +26,7 @@ replace (
 	github.com/chefsgo/token-default => /Users/yatniel/chefsgo/token-default
 	github.com/chefsgo/token-jwt => /Users/yatniel/chefsgo/token-jwt
 	github.com/chefsgo/util => /Users/yatniel/chefsgo/util
+	github.com/chefsgo/view-default => /Users/yatniel/chefsgo/view-default
 )
 
 require (
@@ -35,6 +38,7 @@ require (
 	github.com/chefsgo/chef v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cluster-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cluster-gossip v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/data-postgres v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-file v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/mutex-default v0.0.0-00010101000000-000000000000
@@ -64,6 +68,7 @@ require (
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
 	github.com/hashicorp/memberlist v0.3.1 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/lib/pq v1.10.5 // indirect
 	github.com/miekg/dns v1.1.26 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect

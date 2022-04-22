@@ -10,6 +10,7 @@ import (
 	_ "github.com/chefsgo/cache-memory"
 	_ "github.com/chefsgo/cluster-default"
 	_ "github.com/chefsgo/cluster-gossip"
+	_ "github.com/chefsgo/data-postgres"
 	_ "github.com/chefsgo/log-default"
 	_ "github.com/chefsgo/log-file"
 	_ "github.com/chefsgo/mutex-default"
@@ -29,15 +30,31 @@ var (
 
 func init() {
 
+	// s := Vars{
+	// 	"name": Var{
+	// 		Required: true, Name: "名称", Desc: "名称",
+	// 	},
+	// }
+
 	chef.Configure(Map{
 		"name":    "chef",
 		"role":    "user",
 		"version": "1.0.0",
+		"data": Map{
+			"driver": "postgres",
+		},
 		"cluster": Map{
 			"driver": "gossip",
 		},
 		"token": Map{
 			"driver": "default",
+		},
+	})
+
+	chef.Register("test.Method", chef.Method{
+		Name: "name", Desc: "name",
+		Action: func(ctx *chef.Process) {
+			ctx.Info("test.Method 被调用啦！")
 		},
 	})
 
