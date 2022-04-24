@@ -14,12 +14,13 @@ replace (
 	github.com/chefsgo/cache-redis => /Users/yatniel/chefsgo/cache-redis
 	github.com/chefsgo/chef => /Users/yatniel/chefsgo/chef
 
-	github.com/chefsgo/codec => /Users/yatniel/chefsgo/codec
-
 	// github.com/chefsgo/cluster-default => /Users/yatniel/chefsgo/cluster-default
 	// github.com/chefsgo/cluster-gossip => /Users/yatniel/chefsgo/cluster-gossip
-	// github.com/chefsgo/data-postgres => /Users/yatniel/chefsgo/data-postgres
+
 	// github.com/chefsgo/http-default => /Users/yatniel/chefsgo/http-default
+
+	github.com/chefsgo/data => /Users/yatniel/chefsgo/data
+	github.com/chefsgo/data-postgres => /Users/yatniel/chefsgo/data-postgres
 
 	github.com/chefsgo/log => /Users/yatniel/chefsgo/log
 	github.com/chefsgo/log-default => /Users/yatniel/chefsgo/log-default
@@ -57,6 +58,8 @@ require (
 	github.com/chefsgo/cache-memory v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-redis v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/chef v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/data v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/data-postgres v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-file v0.0.0-00010101000000-000000000000
@@ -74,11 +77,11 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
-	github.com/chefsgo/codec v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/lib/pq v1.10.5 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/speps/go-hashids/v2 v2.0.1 // indirect

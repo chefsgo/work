@@ -3,9 +3,10 @@ package main
 import (
 	"time"
 
+	"github.com/chefsgo/chef"
+
 	. "github.com/chefsgo/base"
 	_ "github.com/chefsgo/builtin"
-	"github.com/chefsgo/chef"
 
 	"github.com/chefsgo/log"
 	_ "github.com/chefsgo/log-default"
@@ -30,6 +31,9 @@ import (
 	_ "github.com/chefsgo/cache-file"
 	_ "github.com/chefsgo/cache-memory"
 	_ "github.com/chefsgo/cache-redis"
+
+	"github.com/chefsgo/data"
+	_ "github.com/chefsgo/data-postgres"
 )
 
 var (
@@ -39,8 +43,17 @@ var (
 func init() {
 
 	chef.Configure(Map{
-		"cache": Map{
-			"driver": "redis",
+		"data": Map{
+			"driver": "postgres",
+			"url":    "postgres://chefsgo:chefsgo@127.0.0.1:5432/chefsgo?sslmode=disable",
+		},
+	})
+
+	data.Register("test", data.Table{
+		Name: "test", Text: "test",
+		Fields: Vars{
+			"id":  Var{Required: false, Type: "int", Name: "id"},
+			"msg": Var{Required: true, Type: "string", Name: "msg"},
 		},
 	})
 
@@ -77,6 +90,13 @@ func init() {
 func main() {
 	chef.Ready()
 	log.Debug("cool.")
+
+	db := data.Base()
+
+	db.Table("test").Create(Map{"msg": "msg from work111"})
+
+	item := db.Table("test").Entity(1)
+	log.Debug("item", item)
 
 	cce1 := cache.Write("key", "asdfaf")
 	ccv, cce := cache.Read("key")
