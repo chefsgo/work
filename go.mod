@@ -30,6 +30,10 @@ replace (
 	github.com/chefsgo/mutex-default => /Users/yatniel/chefsgo/mutex-default
 	github.com/chefsgo/mutex-redis => /Users/yatniel/chefsgo/mutex-redis
 
+	github.com/chefsgo/queue => /Users/yatniel/chefsgo/queue
+	github.com/chefsgo/queue-default => /Users/yatniel/chefsgo/queue-default
+	github.com/chefsgo/queue-redis => /Users/yatniel/chefsgo/queue-redis
+
 	github.com/chefsgo/session => /Users/yatniel/chefsgo/session
 	github.com/chefsgo/session-buntdb => /Users/yatniel/chefsgo/session-buntdb
 	github.com/chefsgo/session-default => /Users/yatniel/chefsgo/session-default
@@ -51,7 +55,6 @@ replace (
 require (
 	github.com/chefsgo/base v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/builtin v0.0.0-00010101000000-000000000000
-	github.com/chefsgo/cache v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-buntdb v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-file v0.0.0-00010101000000-000000000000
@@ -63,20 +66,24 @@ require (
 	github.com/chefsgo/log v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-file v0.0.0-00010101000000-000000000000
-	github.com/chefsgo/mutex v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/mutex-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/mutex-redis v0.0.0-00010101000000-000000000000
-	github.com/chefsgo/session v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/queue v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/queue-default v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/queue-redis v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-buntdb v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-redis v0.0.0-00010101000000-000000000000
-	github.com/chefsgo/token v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-jwt v0.0.0-00010101000000-000000000000
 )
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
+	github.com/chefsgo/cache v0.0.0-00010101000000-000000000000 // indirect
+	github.com/chefsgo/mutex v0.0.0-00010101000000-000000000000 // indirect
+	github.com/chefsgo/session v0.0.0-00010101000000-000000000000 // indirect
+	github.com/chefsgo/token v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect

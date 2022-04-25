@@ -3,7 +3,11 @@ package main
 import (
 	"time"
 
+	"github.com/chefsgo/cache"
 	"github.com/chefsgo/chef"
+	"github.com/chefsgo/mutex"
+	"github.com/chefsgo/session"
+	"github.com/chefsgo/token"
 
 	. "github.com/chefsgo/base"
 	_ "github.com/chefsgo/builtin"
@@ -12,20 +16,16 @@ import (
 	_ "github.com/chefsgo/log-default"
 	_ "github.com/chefsgo/log-file"
 
-	"github.com/chefsgo/session"
 	_ "github.com/chefsgo/session-buntdb"
 	_ "github.com/chefsgo/session-default"
 	_ "github.com/chefsgo/session-redis"
 
-	"github.com/chefsgo/mutex"
 	_ "github.com/chefsgo/mutex-default"
 	_ "github.com/chefsgo/mutex-redis"
 
-	"github.com/chefsgo/token"
 	_ "github.com/chefsgo/token-default"
 	_ "github.com/chefsgo/token-jwt"
 
-	"github.com/chefsgo/cache"
 	_ "github.com/chefsgo/cache-buntdb"
 	_ "github.com/chefsgo/cache-default"
 	_ "github.com/chefsgo/cache-file"
@@ -34,6 +34,10 @@ import (
 
 	"github.com/chefsgo/data"
 	_ "github.com/chefsgo/data-postgres"
+
+	"github.com/chefsgo/queue"
+	_ "github.com/chefsgo/queue-default"
+	_ "github.com/chefsgo/queue-redis"
 )
 
 var (
@@ -41,11 +45,9 @@ var (
 )
 
 func init() {
-
 	chef.Configure(Map{
-		"data": Map{
-			"driver": "postgres",
-			"url":    "postgres://chefsgo:chefsgo@127.0.0.1:5432/chefsgo?sslmode=disable",
+		"queue": Map{
+			"driver": "redis",
 		},
 	})
 
@@ -78,23 +80,59 @@ func init() {
 	// 	},
 	// })
 
-	// chef.Register("test.Method", chef.Method{
-	// 	Name: "name", Desc: "name",
-	// 	Action: func(ctx *chef.Process) {
-	// 		ctx.Info("test.Method 被调用啦！")
+	chef.Register("test.Method", chef.Method{
+		Name: "name", Text: "name",
+		Action: func(ctx *chef.Context) {
+			log.Info("test.Method 被调用啦！")
+		},
+	})
+
+	chef.Register(chef.StartTrigger, chef.Method{
+		Name: "Start", Text: "Start",
+		Action: func(ctx *chef.Context) {
+			log.Info("系统启动了")
+		},
+	})
+	chef.Register(chef.StopTrigger, chef.Method{
+		Name: "Start", Text: "Start",
+		Action: func(ctx *chef.Context) {
+			log.Info("退出前的狂欢")
+		},
+	})
+
+	// chef.Register("queue.Filter", queue.Filter{
+	// 	Name: "filter", Text: "filter",
+	// 	Request: func(ctx *queue.Context) {
+	// 		ctx.Next()
 	// 	},
 	// })
+
+	chef.Register("test.SendMsg", queue.Queue{
+		Retry: 5, Name: "name", Text: "name",
+		Action: func(ctx *queue.Context) {
+			log.Info("test.SendMsg 被调用啦！", ctx.Retries())
+			ctx.Invoke("test.Method")
+			// log.Info("what", ctx.Retries())
+			ctx.Retry()
+			// log.Info("retry what", ctx.Retries())
+		},
+	})
 
 }
 
 func main() {
+	chef.Go()
+}
+
+func test() {
 	chef.Ready()
 	log.Debug("cool.")
 
+	ddd, res := chef.Execute("test.Method")
+	log.Info("execute", res, ddd)
+
 	db := data.Base()
-
 	db.Table("test").Create(Map{"msg": "msg from work111"})
-
 	item := db.Table("test").Entity(1)
 	log.Debug("item", item)
 
@@ -124,8 +162,7 @@ func main() {
 		log.Debug("key unloaded 3")
 	}
 
-	ttt, eee := token.Sign(&token.Token{ActId: "EkTWtdXf1"})
+	ttt, eee := token.Sign(&token.Token{ActId: "m8tVfvzhz"})
 	log.Debug("token", eee, ttt)
-
 	chef.Go()
 }
