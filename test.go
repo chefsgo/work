@@ -38,6 +38,10 @@ import (
 	"github.com/chefsgo/queue"
 	_ "github.com/chefsgo/queue-default"
 	_ "github.com/chefsgo/queue-redis"
+
+	"github.com/chefsgo/event"
+	_ "github.com/chefsgo/event-default"
+	_ "github.com/chefsgo/event-redis"
 )
 
 var (
@@ -46,6 +50,9 @@ var (
 
 func init() {
 	chef.Configure(Map{
+		"event": Map{
+			"driver": "redis",
+		},
 		"queue": Map{
 			"driver": "redis",
 		},
@@ -91,6 +98,8 @@ func init() {
 		Name: "Start", Text: "Start",
 		Action: func(ctx *chef.Context) {
 			log.Info("系统启动了")
+			time.Sleep(time.Millisecond * 100)
+			event.Publish("test.TestEvent")
 		},
 	})
 	chef.Register(chef.StopTrigger, chef.Method{
@@ -118,6 +127,12 @@ func init() {
 		},
 	})
 
+	chef.Register("test.TestEvent", event.Event{
+		Name: "TestEvent", Text: "TestEvent",
+		Action: func(ctx *event.Context) {
+			log.Info("test.TestEvent 收到事件了")
+		},
+	})
 }
 
 func main() {
