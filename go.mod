@@ -26,6 +26,9 @@ replace (
 	github.com/chefsgo/event-default => /Users/yatniel/chefsgo/event-default
 	github.com/chefsgo/event-redis => /Users/yatniel/chefsgo/event-redis
 
+	github.com/chefsgo/http => /Users/yatniel/chefsgo/http
+	github.com/chefsgo/http-default => /Users/yatniel/chefsgo/http-default
+
 	github.com/chefsgo/log => /Users/yatniel/chefsgo/log
 	github.com/chefsgo/log-default => /Users/yatniel/chefsgo/log-default
 	github.com/chefsgo/log-file => /Users/yatniel/chefsgo/log-file
@@ -42,11 +45,6 @@ replace (
 	github.com/chefsgo/session-buntdb => /Users/yatniel/chefsgo/session-buntdb
 	github.com/chefsgo/session-default => /Users/yatniel/chefsgo/session-default
 	github.com/chefsgo/session-redis => /Users/yatniel/chefsgo/session-redis
-
-	// github.com/chefsgo/session-buntdb => /Users/yatniel/chefsgo/session-buntdb
-	// github.com/chefsgo/session-default => /Users/yatniel/chefsgo/session-default
-	// github.com/chefsgo/session-file => /Users/yatniel/chefsgo/session-file
-	// github.com/chefsgo/session-memory => /Users/yatniel/chefsgo/session-memory
 
 	github.com/chefsgo/token => /Users/yatniel/chefsgo/token
 	github.com/chefsgo/token-default => /Users/yatniel/chefsgo/token-default
@@ -71,6 +69,8 @@ require (
 	github.com/chefsgo/event v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/event-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/event-redis v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/http v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/http-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/log-file v0.0.0-00010101000000-000000000000
@@ -94,6 +94,7 @@ require (
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect
+	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/lib/pq v1.10.5 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect

@@ -42,6 +42,9 @@ import (
 	"github.com/chefsgo/event"
 	_ "github.com/chefsgo/event-default"
 	_ "github.com/chefsgo/event-redis"
+
+	"github.com/chefsgo/http"
+	_ "github.com/chefsgo/http-default"
 )
 
 var (
@@ -50,12 +53,12 @@ var (
 
 func init() {
 	chef.Configure(Map{
-		"event": Map{
-			"driver": "redis",
-		},
-		"queue": Map{
-			"driver": "redis",
-		},
+		// "event": Map{
+		// 	"driver": "redis",
+		// },
+		// "queue": Map{
+		// 	"driver": "redis",
+		// },
 	})
 
 	data.Register("test", data.Table{
@@ -72,20 +75,25 @@ func init() {
 	// 	},
 	// }
 
-	// chef.Configure(Map{
-	// 	"name":    "chef",
-	// 	"role":    "user",
-	// 	"version": "1.0.0",
-	// 	"data": Map{
-	// 		"driver": "postgres",
-	// 	},
-	// 	"cluster": Map{
-	// 		"driver": "gossip",
-	// 	},
-	// 	"token": Map{
-	// 		"driver": "default",
-	// 	},
-	// })
+	chef.Configure(Map{
+		"name":    "chef",
+		"role":    "user",
+		"version": "1.0.0",
+		"data": Map{
+			"driver": "postgres",
+		},
+		"cluster": Map{
+			"driver": "gossip",
+		},
+		"http": Map{
+			"driver": "default",
+			"sites": Map{
+				"www": Map{
+					"name": "主站",
+				},
+			},
+		},
+	})
 
 	chef.Register("test.Method", chef.Method{
 		Name: "name", Text: "name",
@@ -133,6 +141,15 @@ func init() {
 			log.Info("test.TestEvent 收到事件了")
 		},
 	})
+
+	chef.Register(".index", http.Router{
+		Uri: "/", Name: "index", Text: "index",
+		Action: func(ctx *http.Context) {
+			log.Info("http index")
+			ctx.Text("Hello Chefs.go")
+		},
+	})
+
 }
 
 func main() {
