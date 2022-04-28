@@ -95,10 +95,17 @@ func init() {
 		},
 	})
 
+	chef.Register("zh", chef.Lang{
+		"found": "找不到",
+	})
+
 	chef.Register("test.Method", chef.Method{
 		Name: "name", Text: "name",
-		Action: func(ctx *chef.Context) {
+		Action: func(ctx *chef.Context) Map {
 			log.Info("test.Method 被调用啦！")
+			return Map{
+				"msg": "msg from method.",
+			}
 		},
 	})
 
@@ -145,8 +152,11 @@ func init() {
 	chef.Register(".index", http.Router{
 		Uri: "/", Name: "index", Text: "index",
 		Action: func(ctx *http.Context) {
-			log.Info("http index")
-			ctx.Text("Hello Chefs.go")
+			ctx.SetLanguage("zh")
+			ctx.Json(Map{
+				"msg": "msg from json",
+			})
+			ctx.Found()
 		},
 	})
 
