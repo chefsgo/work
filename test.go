@@ -45,6 +45,7 @@ import (
 
 	"github.com/chefsgo/http"
 	_ "github.com/chefsgo/http-default"
+	_ "github.com/chefsgo/view-default"
 )
 
 var (
@@ -109,20 +110,20 @@ func init() {
 		},
 	})
 
-	chef.Register(chef.StartTrigger, chef.Method{
-		Name: "Start", Text: "Start",
-		Action: func(ctx *chef.Context) {
-			log.Info("系统启动了")
-			time.Sleep(time.Millisecond * 100)
-			event.Publish("test.TestEvent")
-		},
-	})
-	chef.Register(chef.StopTrigger, chef.Method{
-		Name: "Start", Text: "Start",
-		Action: func(ctx *chef.Context) {
-			log.Info("退出前的狂欢")
-		},
-	})
+	// chef.Register(chef.StartTrigger, chef.Method{
+	// 	Name: "Start", Text: "Start",
+	// 	Action: func(ctx *chef.Context) {
+	// 		log.Info("系统启动了")
+	// 		time.Sleep(time.Millisecond * 100)
+	// 		event.Publish("test.TestEvent")
+	// 	},
+	// })
+	// chef.Register(chef.StopTrigger, chef.Method{
+	// 	Name: "Start", Text: "Start",
+	// 	Action: func(ctx *chef.Context) {
+	// 		log.Info("退出前的狂欢")
+	// 	},
+	// })
 
 	// chef.Register("queue.Filter", queue.Filter{
 	// 	Name: "filter", Text: "filter",
@@ -152,11 +153,8 @@ func init() {
 	chef.Register(".index", http.Router{
 		Uri: "/", Name: "index", Text: "index",
 		Action: func(ctx *http.Context) {
-			ctx.SetLanguage("zh")
-			ctx.Json(Map{
-				"msg": "msg from json",
-			})
-			ctx.Found()
+			ctx.Data["msg"] = "msg from data"
+			ctx.View("test")
 		},
 	})
 

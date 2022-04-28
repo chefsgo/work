@@ -50,6 +50,8 @@ replace (
 	github.com/chefsgo/token-default => /Users/yatniel/chefsgo/token-default
 	github.com/chefsgo/token-jwt => /Users/yatniel/chefsgo/token-jwt
 	github.com/chefsgo/util => /Users/yatniel/chefsgo/util
+	github.com/chefsgo/view => /Users/yatniel/chefsgo/view
+	github.com/chefsgo/view-default => /Users/yatniel/chefsgo/view-default
 
 // github.com/chefsgo/view-default => /Users/yatniel/chefsgo/view-default
 )
@@ -87,11 +89,13 @@ require (
 	github.com/chefsgo/token v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-jwt v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/view-default v0.0.0-00010101000000-000000000000
 )
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
+	github.com/chefsgo/view v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
