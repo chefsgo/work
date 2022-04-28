@@ -53,15 +53,6 @@ var (
 )
 
 func init() {
-	chef.Configure(Map{
-		// "event": Map{
-		// 	"driver": "redis",
-		// },
-		// "queue": Map{
-		// 	"driver": "redis",
-		// },
-	})
-
 	data.Register("test", data.Table{
 		Name: "test", Text: "test",
 		Fields: Vars{
@@ -103,7 +94,7 @@ func init() {
 	chef.Register("test.Method", chef.Method{
 		Name: "name", Text: "name",
 		Action: func(ctx *chef.Context) Map {
-			log.Info("test.Method 被调用啦！")
+			log.Info("test.Method 被调用啦！", ctx.Language())
 			return Map{
 				"msg": "msg from method.",
 			}
@@ -136,10 +127,7 @@ func init() {
 		Retry: 5, Name: "name", Text: "name",
 		Action: func(ctx *queue.Context) {
 			log.Info("test.SendMsg 被调用啦！", ctx.Retries())
-			ctx.Invoke("test.Method")
-			// log.Info("what", ctx.Retries())
 			ctx.Retry()
-			// log.Info("retry what", ctx.Retries())
 		},
 	})
 
@@ -153,7 +141,9 @@ func init() {
 	chef.Register(".index", http.Router{
 		Uri: "/", Name: "index", Text: "index",
 		Action: func(ctx *http.Context) {
-			ctx.Data["msg"] = "msg from data"
+			queue.Publish("test.SendMsg")
+			ctx.Language("testlang")
+			ctx.Data["msg"] = ctx.Invoke("test.Method")
 			ctx.View("test")
 		},
 	})
