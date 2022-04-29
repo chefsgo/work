@@ -61,11 +61,23 @@ func init() {
 		},
 	})
 
+	chef.Register("zhCN", chef.Language{
+		Accepts: []string{"zh-CN", "zhCN", "cn"},
+		Strings: Strs{
+			"user_1": "asdfadsf",
+			"user_2": "asdfadsf",
+		},
+	})
+
 	// s := Vars{
 	// 	"name": Var{
 	// 		Required: true, Name: "名称", Desc: "名称",
 	// 	},
 	// }
+
+	chef.Register("mime", chef.Mime{
+		"txt": "text/plain",
+	})
 
 	chef.Configure(Map{
 		"name":    "chef",
@@ -85,10 +97,6 @@ func init() {
 				},
 			},
 		},
-	})
-
-	chef.Register("zh", chef.Lang{
-		"found": "找不到",
 	})
 
 	chef.Register("test.Method", chef.Method{
@@ -127,7 +135,11 @@ func init() {
 		Retry: 5, Name: "name", Text: "name",
 		Action: func(ctx *queue.Context) {
 			log.Info("test.SendMsg 被调用啦！", ctx.Retries())
-			ctx.Retry()
+
+			if chef.Testing() {
+
+			}
+
 		},
 	})
 
@@ -141,9 +153,14 @@ func init() {
 	chef.Register(".index", http.Router{
 		Uri: "/", Name: "index", Text: "index",
 		Action: func(ctx *http.Context) {
-			queue.Publish("test.SendMsg")
-			ctx.Language("testlang")
-			ctx.Data["msg"] = ctx.Invoke("test.Method")
+			// ctx.Text(ctx.Url.Route(".test", Map{"{id}": 123, "page": 1}))
+			ctx.Respond(chef.OK)
+		},
+	})
+
+	chef.Register(".test", http.Router{
+		Uri: "/test/{id}", Name: "test", Text: "test",
+		Action: func(ctx *http.Context) {
 			ctx.View("test")
 		},
 	})
