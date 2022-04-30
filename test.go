@@ -135,11 +135,6 @@ func init() {
 		Retry: 5, Name: "name", Text: "name",
 		Action: func(ctx *queue.Context) {
 			log.Info("test.SendMsg 被调用啦！", ctx.Retries())
-
-			if chef.Testing() {
-
-			}
-
 		},
 	})
 
@@ -154,7 +149,7 @@ func init() {
 		Uri: "/", Name: "index", Text: "index",
 		Action: func(ctx *http.Context) {
 			// ctx.Text(ctx.Url.Route(".test", Map{"{id}": 123, "page": 1}))
-			ctx.Respond(chef.OK)
+			ctx.Output(chef.OK)
 		},
 	})
 
@@ -162,6 +157,16 @@ func init() {
 		Uri: "/test/{id}", Name: "test", Text: "test",
 		Action: func(ctx *http.Context) {
 			ctx.View("test")
+		},
+	})
+
+	chef.Register(".upload", http.Router{
+		Uri: "/upload", Name: "upload", Text: "upload",
+		Action: func(ctx *http.Context) {
+			ctx.Output(nil, Map{
+				"value":  ctx.Value,
+				"upload": ctx.Upload,
+			})
 		},
 	})
 
