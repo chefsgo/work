@@ -63,7 +63,7 @@ func init() {
 
 	chef.Register("zhCN", chef.Language{
 		Accepts: []string{"zh-CN", "zhCN", "cn"},
-		Strings: Strs{
+		Strings: chef.Strings{
 			"user_1": "asdfadsf",
 			"user_2": "asdfadsf",
 		},
@@ -76,7 +76,7 @@ func init() {
 	// }
 
 	chef.Register("mime", chef.Mime{
-		"txt": "text/plain",
+		"text/plain",
 	})
 
 	chef.Configure(Map{
