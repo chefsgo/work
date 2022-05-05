@@ -46,6 +46,9 @@ replace (
 	github.com/chefsgo/session-default => /Users/yatniel/chefsgo/session-default
 	github.com/chefsgo/session-redis => /Users/yatniel/chefsgo/session-redis
 
+	github.com/chefsgo/store => /Users/yatniel/chefsgo/store
+	github.com/chefsgo/store-default => /Users/yatniel/chefsgo/store-default
+
 	github.com/chefsgo/token => /Users/yatniel/chefsgo/token
 	github.com/chefsgo/token-default => /Users/yatniel/chefsgo/token-default
 	github.com/chefsgo/token-jwt => /Users/yatniel/chefsgo/token-jwt
@@ -86,6 +89,7 @@ require (
 	github.com/chefsgo/session-buntdb v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-redis v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/store-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-jwt v0.0.0-00010101000000-000000000000
@@ -94,6 +98,7 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
+	github.com/chefsgo/store v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/view v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
