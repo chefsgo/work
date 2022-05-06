@@ -1,0 +1,8 @@
+[file]
+hash	= "sha1"
+
+[store.def]
+driver	= "default"
+[store.def.setting]
+sfasdf = "asdf"
+
