@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	. "github.com/chefsgo/base"
 
 	_ "github.com/chefsgo/builtin"
@@ -100,9 +98,6 @@ func init() {
 		Action: func(ctx *http.Context) {
 			code := ctx.Args["code"].(string)
 			file, err := store.Download(code)
-
-			fmt.Println("hash", file)
-
 			if err != nil {
 				ctx.Text(err.Error())
 			} else {
