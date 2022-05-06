@@ -9,7 +9,8 @@ import (
 	"github.com/chefsgo/chef"
 	"github.com/chefsgo/http"
 
-	_ "github.com/chefsgo/file-default"
+	"github.com/chefsgo/store"
+	_ "github.com/chefsgo/store-default"
 )
 
 func init() {
@@ -98,14 +99,14 @@ func init() {
 		},
 		Action: func(ctx *http.Context) {
 			code := ctx.Args["code"].(string)
-			file, err := file.Download(code)
+			file, err := store.Download(code)
 
-			fmt.Println("hash", file.Hash())
+			fmt.Println("hash", file)
 
 			if err != nil {
 				ctx.Text(err.Error())
 			} else {
-				ctx.File(file.Path())
+				ctx.File(file.File())
 			}
 		},
 	})
@@ -115,7 +116,7 @@ func init() {
 		Action: func(ctx *http.Context) {
 			codes := []string{}
 			for _, val := range ctx.Upload {
-				file, _, err := file.Upload(val)
+				file, _, err := store.Upload(val)
 				if err == nil {
 					codes = append(codes, file.Code())
 				}
