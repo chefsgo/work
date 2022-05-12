@@ -2,7 +2,6 @@ package main
 
 import (
 	. "github.com/chefsgo/base"
-	"github.com/chefsgo/log"
 
 	_ "github.com/chefsgo/builtin"
 	"github.com/chefsgo/chef"
@@ -10,8 +9,6 @@ import (
 
 	"github.com/chefsgo/store"
 	_ "github.com/chefsgo/store-default"
-
-	"github.com/chefsgo/cron"
 )
 
 func init() {
@@ -152,13 +149,6 @@ func init() {
 	// 		ctx.File(file)
 	// 	},
 	// })
-
-	chef.Register("test", cron.Job{
-		Time: "* * * * * *",
-		Action: func(ctx *cron.Context) {
-			log.Info("test cron.")
-		},
-	})
 
 }
 
