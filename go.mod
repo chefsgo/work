@@ -3,6 +3,7 @@ module github.com/chefsgo/work
 go 1.17
 
 replace (
+
 	github.com/chefsgo/base => /Users/yatniel/chefsgo/base
 	github.com/chefsgo/builtin => /Users/yatniel/chefsgo/builtin
 
@@ -13,6 +14,7 @@ replace (
 	github.com/chefsgo/cache-memory => /Users/yatniel/chefsgo/cache-memory
 	github.com/chefsgo/cache-redis => /Users/yatniel/chefsgo/cache-redis
 	github.com/chefsgo/chef => /Users/yatniel/chefsgo/chef
+	github.com/chefsgo/cron => /Users/yatniel/chefsgo/cron
 
 	// github.com/chefsgo/cluster-default => /Users/yatniel/chefsgo/cluster-default
 	// github.com/chefsgo/cluster-gossip => /Users/yatniel/chefsgo/cluster-gossip
@@ -69,6 +71,7 @@ require (
 	github.com/chefsgo/cache-memory v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/cache-redis v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/chef v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/cron v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/data v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/data-postgres v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/event v0.0.0-00010101000000-000000000000
@@ -89,6 +92,7 @@ require (
 	github.com/chefsgo/session-buntdb v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/session-redis v0.0.0-00010101000000-000000000000
+	github.com/chefsgo/store v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/store-default v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token v0.0.0-00010101000000-000000000000
 	github.com/chefsgo/token-default v0.0.0-00010101000000-000000000000
@@ -98,7 +102,6 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.1.0 // indirect
-	github.com/chefsgo/store v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/util v0.0.0-00010101000000-000000000000 // indirect
 	github.com/chefsgo/view v0.0.0-00010101000000-000000000000 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
@@ -108,6 +111,7 @@ require (
 	github.com/lib/pq v1.10.5 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/speps/go-hashids/v2 v2.0.1 // indirect
 	github.com/tidwall/btree v1.1.0 // indirect
 	github.com/tidwall/buntdb v1.2.9 // indirect
