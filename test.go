@@ -160,6 +160,12 @@ func init() {
 		},
 	})
 
+	chef.Register("XXX", http.Filter{
+		Request: func(ctx *http.Context) {
+			ctx.Next()
+		},
+	})
+
 	chef.Register(".upload", http.Router{
 		Uri: "/upload", Name: "upload", Text: "upload",
 		Action: func(ctx *http.Context) {

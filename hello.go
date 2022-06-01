@@ -2,6 +2,7 @@ package main
 
 import (
 	. "github.com/chefsgo/base"
+	"github.com/chefsgo/log"
 
 	_ "github.com/chefsgo/builtin"
 	"github.com/chefsgo/chef"
@@ -9,6 +10,9 @@ import (
 
 	"github.com/chefsgo/store"
 	_ "github.com/chefsgo/store-default"
+
+	"github.com/chefsgo/queue"
+	_ "github.com/chefsgo/queue-default"
 )
 
 func init() {
@@ -124,6 +128,22 @@ func init() {
 				}
 			}
 			ctx.JSON(codes)
+		},
+	})
+
+	chef.Register(".test", http.Router{
+		Uri: "/test",
+		Action: func(ctx *http.Context) {
+			queue.Enqueue("test.SendMsg")
+			ctx.JSON(ctx.Value)
+		},
+	})
+
+	chef.Register("test.SendMsg", queue.Queue{
+		Retry: 5, Name: "name", Text: "name",
+		Action: func(ctx *queue.Context) {
+			log.Info("test.SendMsg 被调用啦！", ctx.Retries())
+			ctx.Retry()
 		},
 	})
 
