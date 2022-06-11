@@ -170,6 +170,9 @@ func init() {
 	// 	},
 	// })
 
+	s, _ := chef.EncryptTEXT("XVZTIYCQ6MGDLY2B")
+	log.Info(s)
+
 }
 
 func main() {
